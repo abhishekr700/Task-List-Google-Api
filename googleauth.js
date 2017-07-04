@@ -60,7 +60,7 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
 //            makeApiCall();
-        listTaskLists();
+//         listTaskLists();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';

@@ -11,10 +11,15 @@
 <button id="authorize-button" style="display: none;">Authorize</button>
 <button id="signout-button" style="display: none;">Sign Out</button>
 
-<div id="content"></div>
+<div id="content">
+</div>
+
+<button id="test" onclick="list()">Test</button>
+<button  onclick="getAllTasks()">Get All Tasks</button>
+
 
 <script type="text/javascript" src="googleauth.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+<script async defer src="api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 <script type="text/javascript" src="tasklist.js"></script>
 
 </body>
