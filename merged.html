@@ -1,33 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tasks API Test</title>
+    <title>Task List With Tasks API Integration</title>
     <!-- Required meta tags -->
-    <meta charset='utf-8' />
+    <meta charset='utf-8'/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!--Project CSS-->
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <!--FontAwesome Stylesheet -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="js/jquery-3.1.1.slim.min.js" ></script>
-    <script src="js/tether.min.js" ></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<p>Say hello using the Tasks API.</p>
 
-<!--Add buttons to initiate auth sequence and sign out-->
-<button id="authorize-button" style="display: none;">Authorize</button>
-<button id="signout-button" style="display: none;">Sign Out</button>
+<!--<div id="content">-->
+<!--</div>-->
 
-<div id="content">
+
+<!-- Main Content Starts Here -->
+<div class="jumbotron jumbotron-fluid bg-inverse" id="jumbo-head">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="display-4" id="main-heading">My Todo List</h2>
+                <p class="smal text-muted text-lg-center text-info">With Tasks API Integration</p>
+            </div>
+            <div class="col-3 d-flex align-items-center">
+                <div id="user-name"></div>
+            </div>
+            <div class="col-3 d-flex">
+                <!--<input type="button" class="btn btn-danger" value="Auth"-->
+                <!--Add buttons to initiate auth sequence and sign out-->
+                <div class="d-flex align-items-center">
+                    <button id="authorize-button" style="display: none;" class="btn btn-danger">Authorize</button>
+                    <button id="signout-button" style="display: none;" class="btn btn-warning">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<div class="container" id="main-container">
+    <div class="row">
+        <div class="col-10">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Task-Name</span>
+                <input type="text" class="form-control" placeholder="Enter Your Task" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-1 text-center">
+            <button type="button" class="btn btn-outline-success" style="width: 100%;">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="col-1 text-center">
+            <button type="button" class="btn btn-outline-danger" style="width: 100%">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<br><br><br>
 <button id="test" onclick="list()">Test</button>
-<button  onclick="getAllTasks()">Get All Tasks</button>
+<button onclick="getAllTasksJquery()">Get All Tasks</button>
+<button onclick="getAllTasks()">Get All Tasks normal</button>
+<!-- Footer Content -->
+<div class="container footer">
+   <div class="row">
+       <div class="col-10">
+                <span class="text-muted">
+                Made With&nbsp
+                <i class="fa fa-heart" aria-hidden="true" id="heart" style="color: #2aabd2"></i>&nbsp With
+                <span class="font-weight-bold">Google Tasks API</span>
+                &nbsp<img src="task-api-logo.png" class="task-api-logo">
+                </span>
+       </div>
+       <div class="col-2">
+           <i class="fa fa-flash text-white" aria-hidden="true"></i>
+           <span class="text-muted text-success font-weight-bold">&nbspAbhishek Ranjan&nbsp</span>
+           <i class="fa fa-flash text-white" aria-hidden="true">&nbsp</i>
+       </div>
+   </div>
+</div>
 
-
+<!-- Main Content Ends Here -->
 <script type="text/javascript" src="js/googleauth.js"></script>
-<script async defer src="js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+<script async defer src="js/api.js" onload="this.onload=function(){};handleClientLoad();afterGoogleAuthLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 <script type="text/javascript" src="js/tasklist.js"></script>
 
 </body>

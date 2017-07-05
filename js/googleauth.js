@@ -17,7 +17,8 @@ var clientId = '931548741421-vvr91qrj1u8n0hd0brfnflpp0olm0bhd.apps.googleusercon
 // Enter one or more authorization scopes. Refer to the documentation for
 // the API or https://developers.google.com/people/v1/how-tos/authorizing
 // for details.
-var scopes = 'https://www.googleapis.com/auth/tasks.readonly';
+var scopes = 'https://www.googleapis.com/auth/tasks.readonly https://www.googleapis.com/auth/tasks';
+//specify multiple scopes by space
 
 var authorizeButton = document.getElementById('authorize-button');
 var signoutButton = document.getElementById('signout-button');
@@ -43,10 +44,11 @@ function initClient() {
     }).then(function () {
         // Listen for sign-in state changes.
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignInState);
 
         // Handle the initial sign-in state.
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-
+        changeSignInState(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     });
@@ -59,7 +61,7 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-//            makeApiCall();
+        //            makeApiCall();
 //         listTaskLists();
     } else {
         authorizeButton.style.display = 'block';

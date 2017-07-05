@@ -1,0 +1,46 @@
+#main-heading{
+    /*color: #FC4A1A;*/
+    opacity: 1;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 2px 2px 15px ;
+
+}
+.nopadding{
+    padding: 1px;
+}
+#jumbo-head{
+    /*background-color: rgba(74, 189, 172, 1);*/
+    /*opacity: 0.5;*/
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#main-container{
+    /*background-image: url("todolist.jpg")*/
+}
+body{
+    /*background-image: url("todolist2.jpg");*/
+    /*background-blend-mode*/
+    color:white;
+
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 1;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #292b2c;
+}
+.task-api-logo{
+    height: 25px;
+}
+#heart{
+    color: #bd4147;
+}
+/*#footer-api-name{*/
+    /*font-weight: bolder;*/
+/*}*/
