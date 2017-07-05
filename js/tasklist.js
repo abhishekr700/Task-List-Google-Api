@@ -52,7 +52,8 @@ function getAllTasks() {
 data from the API
  */
 function setUserName() {
-    $("#user-name").html(`You are logged in as <br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>${UserName}`);
+    $("#user-name").html(`You are logged in as <br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>
+<span class="text-success">${UserName}</span>`);
 }
 /*Updates the field where logged in user is set by above function */
 function updateUserNameOnSignOut() {
