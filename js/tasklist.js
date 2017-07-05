@@ -1,13 +1,24 @@
 /**
  * Created by abhishek on 5/7/17.
  */
-var AccessToken,UserName;
+var AccessToken,UserName,listId;
 
 console.log("tasklist.js loaded");
 $(function () {
 
 });
+function findDefaultList() {
+    gapi.client.tasks.tasklists.list().then(function (response) {
+        console.log(response);
+        console.log(response.result.items);
+        listId = response.result.items[0].id;
+        console.log(listId);
+    });
+}
 
+function showList(listid) {
+
+}
 
 function changeSignInState(IsSignedIn){
     console.log("changeSignInState called");
@@ -15,7 +26,7 @@ function changeSignInState(IsSignedIn){
         UserName = gapi.auth2.getAuthInstance().currentUser.get().w3.ig;
         AccessToken = gapi.auth2.getAuthInstance().$K.Q7.access_token;
         setUserName();
-
+        findDefaultList();
     }
     else {
         updateUserNameOnSignOut();
