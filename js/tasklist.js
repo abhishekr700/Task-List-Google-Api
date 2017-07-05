@@ -15,6 +15,7 @@ function changeSignInState(IsSignedIn){
         UserName = gapi.auth2.getAuthInstance().currentUser.get().w3.ig;
         AccessToken = gapi.auth2.getAuthInstance().$K.Q7.access_token;
         setUserName();
+
     }
     else {
         updateUserNameOnSignOut();
@@ -52,7 +53,7 @@ function getAllTasks() {
 data from the API
  */
 function setUserName() {
-    $("#user-name").html(`You are logged in as <br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>
+    $("#user-name").html(`<span class="text-white">You are logged in as </span><br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>
 <span class="text-success">${UserName}</span>`);
 }
 /*Updates the field where logged in user is set by above function */

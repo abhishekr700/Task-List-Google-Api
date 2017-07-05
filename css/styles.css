@@ -6,6 +6,18 @@
     text-shadow: 2px 2px 15px ;
 
 }
+/*This styles the up/down/delete buttons in task list*/
+.custom-button{
+    padding: 2px;
+}
+/*This styles div for the up/down/delete button for list items*/
+.custom-button-div{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.fullwidth{
+    width: 100%;
+}
 .nopadding{
     padding: 1px;
 }
@@ -18,11 +30,12 @@
 }
 #main-container{
     /*background-image: url("todolist.jpg")*/
+    margin-bottom: 40px;
 }
 body{
     /*background-image: url("todolist2.jpg");*/
     /*background-blend-mode*/
-    color:white;
+    /*color:white;*/
 
 }
 .footer {
