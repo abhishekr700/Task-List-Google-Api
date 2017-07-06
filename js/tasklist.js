@@ -66,6 +66,7 @@ function showList(listid) {
             </div>
         </li>`)
           }
+          disableButtons();
           // console.log("forloopend");
           // console.log($("#task-list button[class='btn btn-outline-danger fullwidth custom-button']"));
           $("#task-list button[class='btn btn-outline-danger fullwidth custom-button']").click(taskDeleter);
@@ -76,6 +77,10 @@ function showList(listid) {
       });
 }
 
+/*Disables the topmost move up and downmost move down button*/
+function disableButtons() {
+    $("li").last()[0].children[0].children[0].children[3].children[0].setAttribute('disabled', "");
+    $("li").first()[0].children[0].children[0].children[2].children[0].setAttribute('disabled', "")}
 /* Update the list by removing tasks marked
 as completed
  */
