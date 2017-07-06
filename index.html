@@ -51,16 +51,16 @@
         <div class="col-10">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">Task-Name</span>
-                <input type="text" class="form-control" placeholder="Enter Your Task" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Enter Your Task" aria-describedby="basic-addon1" id="task-input">
             </div>
         </div>
         <div class="col-1 text-center">
-            <button type="button" class="btn btn-outline-success" style="width: 100%;">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <button type="button" class="btn btn-outline-success" id="add-task-button" style="width: 100%;">
+                <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             </button>
         </div>
         <div class="col-1 text-center">
-            <button type="button" class="btn btn-outline-danger" style="width: 100%">
+            <button type="button" class="btn btn-outline-danger" style="width: 100%" id="clear-completed-button">
                 <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
         </div>
@@ -68,61 +68,8 @@
 </div>
 <!--List Table Container -->
 <div class="container">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-1">
-                        <input type="checkbox">
-                    </div>
-                    <div class="col-8">
-                        <span class="">Something kjddjf</span>
-                    </div>
-                    <div class="col-1  text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="col-1 text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="col-1 text-center custom-button-div">
-                        <button class="btn btn-outline-danger fullwidth custom-button">
-                            <i class="fa fa-remove" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-1">
-                        <input type="checkbox">
-                    </div>
-                    <div class="col-8">
-                        <span class="">Something new</span>
-                    </div>
-                    <div class="col-1  text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="col-1 text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="col-1 text-center custom-button-div">
-                        <button class="btn btn-outline-danger fullwidth custom-button">
-                            <i class="fa fa-remove" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </li>
+    <ul class="list-group" id="task-list">
+
     </ul>
 </div>
 
