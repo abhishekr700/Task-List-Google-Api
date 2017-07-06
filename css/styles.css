@@ -57,3 +57,7 @@ body{
 /*#footer-api-name{*/
     /*font-weight: bolder;*/
 /*}*/
+.profile-pic{
+    height: 60px;
+    border-radius: 50px;
+}

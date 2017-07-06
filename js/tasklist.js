@@ -1,7 +1,7 @@
 /**
  * Created by abhishek on 5/7/17.
  */
-var AccessToken,UserName,listId;
+var AccessToken,UserName,listId,picUrl;
 
 console.log("tasklist.js loaded");
 $(function () {
@@ -135,6 +135,7 @@ function changeSignInState(IsSignedIn){
     if(IsSignedIn){
         UserName = gapi.auth2.getAuthInstance().currentUser.get().w3.ig;
         AccessToken = gapi.auth2.getAuthInstance().$K.Q7.access_token;
+        picUrl = gapi.auth2.getAuthInstance().currentUser.get().w3.Paa;
         setUserName();
         findDefaultList();
     }
@@ -155,7 +156,7 @@ function list() {
     // console.log(gapi.auth2.getAuthInstance().currentUser.get().Zi.access_token);
     // console.log(GoogleUser.getAuthResponse);
     // console.log(gapi.auth2.getAuthInstance());//returns GoogleAuth object
-    // console.log(gapi.auth2.getAuthInstance().currentUser.get());  //returns a GoogleUser object
+    console.log(gapi.auth2.getAuthInstance().currentUser.get());  //returns a GoogleUser object
     // console.log(gapi.auth2.getAuthInstance().currentUser.get().getGrantedScopes());
 }
 
@@ -176,8 +177,11 @@ function getAllTasks() {
 data from the API
  */
 function setUserName() {
-    $("#user-name").html(`<span class="text-white">You are logged in as </span><br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>
-<span class="text-success">${UserName}</span>`);
+    console.log("Setusername called");
+    $("#user-name").html(`<img src=${picUrl} class="img-fluid rounded float-left profile-pic"><span class="text-white">You are logged in as:</span>
+<br><i class='fa fa-user text-white' aria-hidden='true'>&nbsp</i>
+<span class="text-success">${UserName}
+</span>`);
 }
 
 /*Updates the field where logged in user is set by above function */
