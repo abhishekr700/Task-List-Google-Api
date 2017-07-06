@@ -2,8 +2,6 @@
  * Created by abhishek on 5/7/17.
  */
 var AccessToken,UserName,listId,picUrl;
-
-console.log("tasklist.js loaded");
 $(function () {
     $("#add-task-button").click(newTask);
     $("#clear-completed-button").click(clearCompleted);
@@ -30,21 +28,26 @@ function showList(listid) {
       gapi.client.tasks.tasks.list({
           tasklist: listid
       }).then(function (response) {
-          // console.log("showlist response :",response);
           var taskarr = response.result.items;
           $("#task-list").html("");
-          // console.log("Taskarr",taskarr);
           if(taskarr == undefined)
               throw "a"
           $("#task-list").html("");
           for(var i=0;i<taskarr.length;i++){
-              // console.log("setalist");
-              $("#task-list").append(`<li class="list-group-item" id="${taskarr[i].id}">
+
+              var ligroup =`<li class="list-group-item" id="${taskarr[i].id}">
             <div class="container">
                 <div class="row d-flex align-items-center">
-                    <div class="col-1">
-                        <input type="checkbox">
-                    </div>
+                    <div class="col-1">`;
+
+                if(taskarr[i].status == "needsAction"){
+                    ligroup+=`<input type="checkbox">`;
+                }
+                else{
+                    ligroup+=`<input type="checkbox" checked>`;
+                }
+
+              ligroup+=`</div>
                     <div class="col-4">
                         <span>${taskarr[i].title}</span>
                     </div>
@@ -71,24 +74,47 @@ function showList(listid) {
                     </div>
                 </div>
             </div>
-        </li>`)
+        </li>`;
+              $("#task-list").append(ligroup);
           }
           disableButtons();
-          // console.log("forloopend");
-          // console.log($("#task-list button[class='btn btn-outline-danger fullwidth custom-button']"));
           $("#task-list button[class='btn btn-outline-danger fullwidth custom-button']").click(taskDeleter);
           $("#task-list button[data-direction='down']").click(moveDown);
           $("#task-list button[data-direction='up']").click(moveUp);
-          // console.log($("#task-list button[class='btn btn-outline-danger fullwidth custom-button']"));
-
-
-
+          $("input[type='checkbox']").change(changeTaskState);
       });
 }
+
+/*Change a Task's current status on clicking the
+checkbox.This function is called when the event listener for the checkbox
+fires
+ */
+function changeTaskState(ev) {
+    var TaskId = ev.target.parentNode.parentNode.parentNode.parentNode.id;
+    if(ev.target.checked == false){
+        var req = {
+            "status":"needsAction",
+            "completed": null
+        };
+    }
+    else{
+        var req = {
+            "status":"completed"
+        };
+    }
+    console.log(req,TaskId);
+    gapi.client.tasks.tasks.patch({
+        tasklist: listId,
+        task: TaskId,
+        resource: req
+    }).then(function (response) {
+        console.log(response);
+    })
+}
+
+/*To move a task up in order */
 function moveUp(ev) {
-    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode);
     var tId = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
-    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode.previousSibling);
     var prevNode = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.previousSibling.previousSibling;
     console.log("moveUp called",tId,prevNode);
     if(prevNode == null){
@@ -111,6 +137,7 @@ function moveUp(ev) {
     });
 }
 
+/*To move a task down in order */
 function moveDown(ev) {
     // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode);
     var tId = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
@@ -145,6 +172,7 @@ function clearCompleted() {
        showList(listId);
     });
 }
+
 /*Creates a new task on clicking the add-task button. Task text is retrieved from input field.
 Thereafter, input field is reset.
  */
