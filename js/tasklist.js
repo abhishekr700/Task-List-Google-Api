@@ -109,6 +109,7 @@ function changeTaskState(ev) {
         resource: req
     }).then(function (response) {
         console.log(response);
+        showList(listId);
     })
 }
 

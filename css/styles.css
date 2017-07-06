@@ -72,3 +72,6 @@ body{
     /*background-color: #2b542c;*/
     /*clear:both;*/
 /*}*/
+#list-container{
+    min-height: 315px;
+}
