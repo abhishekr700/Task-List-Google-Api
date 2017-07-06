@@ -32,6 +32,7 @@ function showList(listid) {
       }).then(function (response) {
           // console.log("showlist response :",response);
           var taskarr = response.result.items;
+          $("#task-list").html("");
           // console.log("Taskarr",taskarr);
           if(taskarr == undefined)
               throw "a"
@@ -44,8 +45,14 @@ function showList(listid) {
                     <div class="col-1">
                         <input type="checkbox">
                     </div>
-                    <div class="col-8">
-                        <span class="">${taskarr[i].title}</span>
+                    <div class="col-4">
+                        <span>${taskarr[i].title}</span>
+                    </div>
+                    <div class="col-2 nopadding">
+                        <span class="small">Last Updated On:<br>${taskarr[i].updated.substr(0,10)}</span>
+                    </div>
+                    <div class="col-2 nopadding">
+                        <span class="small">Last Updated At:<br>${taskarr[i].updated.substr(11,8)} (UTC)</span>
                     </div>
                     <div class="col-1  text-center custom-button-div">
                         <button class="btn btn-outline-primary fullwidth custom-button" data-direction="up">

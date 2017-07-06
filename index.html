@@ -19,10 +19,6 @@
 </head>
 <body>
 
-<!--<div id="content">-->
-<!--</div>-->
-
-
 <!-- Main Content Starts Here -->
 <div class="jumbotron jumbotron-fluid bg-inverse" id="jumbo-head">
     <div class="container">
@@ -35,8 +31,6 @@
                 <div id="user-name" class="text-center"></div>
             </div>
             <div class="col-3 d-flex">
-                <!--<input type="button" class="btn btn-danger" value="Auth"-->
-                <!--Add buttons to initiate auth sequence and sign out-->
                 <div class="d-flex align-items-center">
                     <button id="authorize-button" style="display: none;" class="btn btn-danger">Authorize</button>
                     <button id="signout-button" style="display: none;" class="btn btn-warning">Sign Out</button>
@@ -45,7 +39,7 @@
         </div>
     </div>
 </div>
-
+<!-- Actual Task List Stuff -->
 <div class="container" id="main-container">
     <div class="row">
         <div class="col-10">
@@ -73,16 +67,11 @@
     </ul>
 </div>
 
-
-
-<br><br><br>
-<button id="test" onclick="list()">Test</button>
-<button onclick="getAllTasksJquery()">Get All Tasks</button>
-<button onclick="getAllTasks()">Get All Tasks normal</button>
 <!-- Footer Content -->
-<div class="container footer">
+<footer>
+<div class="container" id="footer">
    <div class="row">
-       <div class="col-10">
+       <div class="col-md-10">
                 <span class="text-muted">
                 Made With&nbsp
                 <i class="fa fa-heart" aria-hidden="true" id="heart" style="color: #2aabd2"></i>&nbsp With
@@ -90,13 +79,14 @@
                 &nbsp<img src="task-api-logo.png" class="task-api-logo">
                 </span>
        </div>
-       <div class="col-2">
+       <div class="col-md-2">
            <i class="fa fa-flash text-white" aria-hidden="true"></i><span class="text-white"> By:</span>
            <span class="text-muted text-success font-weight-bold">&nbspAbhishek Ranjan&nbsp</span>
            <i class="fa fa-flash text-white" aria-hidden="true">&nbsp</i>
        </div>
    </div>
 </div>
+</footer>
 
 <!-- Main Content Ends Here -->
 <script type="text/javascript" src="js/googleauth.js"></script>
