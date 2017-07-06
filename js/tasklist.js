@@ -48,12 +48,12 @@ function showList(listid) {
                         <span class="">${taskarr[i].title}</span>
                     </div>
                     <div class="col-1  text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
+                        <button class="btn btn-outline-primary fullwidth custom-button" data-direction="up">
                             <i class="fa fa-arrow-up" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="col-1 text-center custom-button-div">
-                        <button class="btn btn-outline-primary fullwidth custom-button">
+                        <button class="btn btn-outline-primary fullwidth custom-button" data-direction="down">
                             <i class="fa fa-arrow-down" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -70,17 +70,63 @@ function showList(listid) {
           // console.log("forloopend");
           // console.log($("#task-list button[class='btn btn-outline-danger fullwidth custom-button']"));
           $("#task-list button[class='btn btn-outline-danger fullwidth custom-button']").click(taskDeleter);
+          $("#task-list button[data-direction='down']").click(moveDown);
+          $("#task-list button[data-direction='up']").click(moveUp);
           // console.log($("#task-list button[class='btn btn-outline-danger fullwidth custom-button']"));
 
 
 
       });
 }
+function moveUp(ev) {
+    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode);
+    var tId = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
+    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode.previousSibling);
+    var prevNode = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.previousSibling.previousSibling;
+    console.log("moveUp called",tId,prevNode);
+    if(prevNode == null){
+        var reqBody = {
+            tasklist: listId,
+            task: tId
+        };
+    }
+    else{
+        var reqBody = {
+            tasklist: listId,
+            task: tId,
+            previous: prevNode.id
+        };
+    }
+
+    gapi.client.tasks.tasks.move(reqBody).then(function (response) {
+        console.log(response);
+        showList(listId);
+    });
+}
+
+function moveDown(ev) {
+    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode);
+    var tId = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
+    // console.log(ev.currentTarget.parentNode.parentNode.parentNode.parentNode.previousSibling);
+    var nxtId = ev.currentTarget.parentNode.parentNode.parentNode.parentNode.nextSibling.id;
+    console.log("moveDown called",tId,nxtId);
+    var reqBody = {
+        tasklist: listId,
+        task: tId,
+        previous: nxtId
+    };
+    gapi.client.tasks.tasks.move(reqBody).then(function (response) {
+        console.log(response);
+        showList(listId);
+    });
+}
 
 /*Disables the topmost move up and downmost move down button*/
 function disableButtons() {
     $("li").last()[0].children[0].children[0].children[3].children[0].setAttribute('disabled', "");
-    $("li").first()[0].children[0].children[0].children[2].children[0].setAttribute('disabled', "")}
+    $("li").first()[0].children[0].children[0].children[2].children[0].setAttribute('disabled', "");
+}
+
 /* Update the list by removing tasks marked
 as completed
  */
