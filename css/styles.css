@@ -6,6 +6,13 @@
     text-shadow: 2px 2px 15px ;
 
 }
+.updateText{
+    font-size: 12px;
+
+}
+#update-text{
+    font-size: 10px;
+}
 /*This styles the up/down/delete buttons in task list*/
 .custom-button{
     padding: 2px;
@@ -22,20 +29,14 @@
     padding: 1px;
 }
 #jumbo-head{
-    /*background-color: rgba(74, 189, 172, 1);*/
-    /*opacity: 0.5;*/
     font-weight: bolder;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 #main-container{
-    /*background-image: url("todolist.jpg")*/
     margin-bottom: 40px;
 }
 body{
-    /*background-image: url("todolist2.jpg");*/
-    /*background-blend-mode*/
-    /*color:white;*/
     min-height: 600px;
 }
 #footer {
@@ -56,22 +57,12 @@ body{
 #heart{
     color: #bd4147;
 }
-/*#footer-api-name{*/
-    /*font-weight: bolder;*/
-/*}*/
+
 .profile-pic{
     height: 60px;
     border-radius: 50px;
 }
-/*footer {*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*display: block;*/
-    /*margin-top: -20%;*/
-    /*height: -20%;*/
-    /*background-color: #2b542c;*/
-    /*clear:both;*/
-/*}*/
+
 #list-container{
     min-height: 315px;
 }

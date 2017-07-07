@@ -52,12 +52,19 @@ function showList(listid) {
                         <span>${taskarr[i].title}</span>
                     </div>
                     <div class="col-2 nopadding">
-                        <span class="small">Last Updated On:<br>${taskarr[i].updated.substr(0,10)}</span>
-                    </div>
-                    <div class="col-2 nopadding">
-                        <span class="small">Last Updated At:<br>${taskarr[i].updated.substr(11,8)} (UTC)</span>
-                    </div>
-                    <div class="col-1  text-center custom-button-div">
+                        <span class="updateText">Last Updated on <b>${taskarr[i].updated.substr(0,10)}</b> at <b>${taskarr[i].updated.substr(11,8)}</b> (UTC)</span>
+                    </div>`
+              if(taskarr[i].completed) {
+                  ligroup += `<div class="col-2 nopadding">
+                        <span class="updateText">Completed:<b>${taskarr[i].completed.substr(0,10)}</b> at <b>${taskarr[i].completed.substr(11,8)}</b> (UTC)</span>
+                    </div>`
+              }
+              else{
+                    ligroup+= `<div class="col-2 nopadding">
+                        <span class="updateText">Completed:<i>Yet To Complete</i></span>
+                    </div>`
+              }
+              ligroup+= `<div class="col-1  text-center custom-button-div">
                         <button class="btn btn-outline-primary fullwidth custom-button" data-direction="up">
                             <i class="fa fa-arrow-up" aria-hidden="true"></i>
                         </button>
@@ -158,8 +165,8 @@ function moveDown(ev) {
 
 /*Disables the topmost move up and downmost move down button*/
 function disableButtons() {
-    $("li").last()[0].children[0].children[0].children[3].children[0].setAttribute('disabled', "");
-    $("li").first()[0].children[0].children[0].children[2].children[0].setAttribute('disabled', "");
+    $("li").last()[0].children[0].children[0].children[5].children[0].setAttribute('disabled', "");
+    $("li").first()[0].children[0].children[0].children[4].children[0].setAttribute('disabled', "");
 }
 
 /* Update the list by removing tasks marked
