@@ -10,9 +10,7 @@
     font-size: 12px;
 
 }
-#update-text{
-    font-size: 10px;
-}
+
 /*This styles the up/down/delete buttons in task list*/
 .custom-button{
     padding: 2px;
@@ -62,7 +60,9 @@ body{
     height: 60px;
     border-radius: 50px;
 }
-
+#print-div{
+    margin-top: 30px;
+}
 #list-container{
-    min-height: 315px;
+    min-height: 325px;
 }

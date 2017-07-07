@@ -1,0 +1,22 @@
+#jumbo-head{
+    display: none;
+}
+#footer{
+    display: none;
+}
+#main-container{
+    display: none;
+}
+#list-container{
+    visibility: visible;
+    min-height: 325px;
+}
+.custom-button-div{
+    visibility: hidden;
+}
+.complete-field{
+    margin-left: 90px;
+}
+#print-div{
+    display: none;
+}

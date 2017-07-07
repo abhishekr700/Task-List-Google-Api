@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <!--Project CSS-->
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" media="print" href="css/print_styles.css" />
     <!--FontAwesome Stylesheet -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
@@ -24,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h2 class="display-4" id="main-heading" style="color: cyan">My Todo List</h2>
+                <h2 class="display-4" id="main-heading" style="color: cyan">To-Do List</h2>
                 <p class="small text-muted text-lg-center text-info" style="font-weight: bolder">With Tasks API Integration</p>
             </div>
             <div class="col-3 d-flex align-items-center">
@@ -72,7 +73,10 @@
 
     </ul>
 </div>
-
+<!-- Print Options -->
+<div class="container text-center" id="print-div">
+    <button class="btn btn-success" onclick="window.print()">Print My List !</button>
+</div>
 <!-- Footer Content -->
 <footer>
 <div class="container" id="footer">

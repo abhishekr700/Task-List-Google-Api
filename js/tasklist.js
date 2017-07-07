@@ -52,15 +52,15 @@ function showList(listid) {
                         <span>${taskarr[i].title}</span>
                     </div>
                     <div class="col-2 nopadding">
-                        <span class="updateText">Last Updated on <b>${taskarr[i].updated.substr(0,10)}</b> at <b>${taskarr[i].updated.substr(11,8)}</b> (UTC)</span>
+                        <span class="updateText">Last Updated on <b>${taskarr[i].updated.substr(0,10)}</b><br> at <b>${taskarr[i].updated.substr(11,8)}</b> (UTC)</span>
                     </div>`
               if(taskarr[i].completed) {
-                  ligroup += `<div class="col-2 nopadding">
-                        <span class="updateText">Completed:<b>${taskarr[i].completed.substr(0,10)}</b> at <b>${taskarr[i].completed.substr(11,8)}</b> (UTC)</span>
+                  ligroup += `<div class="col-2 nopadding  complete-field">
+                        <span class="updateText">Completed:<b>${taskarr[i].completed.substr(0,10)}</b><br> at <b>${taskarr[i].completed.substr(11,8)}</b> (UTC)</span>
                     </div>`
               }
               else{
-                    ligroup+= `<div class="col-2 nopadding">
+                    ligroup+= `<div class="col-2 nopadding complete-field">
                         <span class="updateText">Completed:<i>Yet To Complete</i></span>
                     </div>`
               }
